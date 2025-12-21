@@ -34,7 +34,7 @@ A modern, customizable invoice generator built with React and Vite. Create profe
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/TirthDhandhukia30/invoicegen.git
+git clone https://github.com/wilfredmanyara/invoicegen.git
 cd invoicegen
 ```
 
@@ -143,9 +143,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Tirth Dhandhukia**
+**Wilfred Manyara**
 
-- GitHub: [@TirthDhandhukia30](https://github.com/TirthDhandhukia30)
+- GitHub: [@wilfredmanyara](https://github.com/wilfredmanyara/)
 
 ## 🙏 Acknowledgments
 

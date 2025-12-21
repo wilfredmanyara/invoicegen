@@ -59,7 +59,7 @@ export default function LandingPage({ onOpen }) {
         </div>
         <div className="flex items-center gap-6">
           <a
-            href="https://github.com/TirthDhandhukia30/invoicegen"
+            href="https://github.com/wilfredmanyara/invoicegen"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-foreground/50 hover:text-foreground transition-colors"
@@ -111,7 +111,7 @@ export default function LandingPage({ onOpen }) {
             </svg>
           </Button>
           {/* Login/Logout Button */}
-          <Button
+          {/* <Button
             variant="outline"
             size="lg"
             className="ml-6 mt-4 border-2 border-dashed border-foreground/30 bg-transparent text-foreground px-8 py-4 rounded-2xl hover:bg-foreground/5 hover:border-foreground/50 font-medium text-base tracking-wide transition-all"
@@ -128,7 +128,7 @@ export default function LandingPage({ onOpen }) {
             }}
           >
             {session ? "Logout" : "Login"}
-          </Button>
+          </Button> */}
         </div>
 
         {/* Subtle bottom curve */}
@@ -174,12 +174,12 @@ export default function LandingPage({ onOpen }) {
         <div className="flex items-center justify-center text-xs text-foreground/40">
           <span>Made with ♥ by</span>
           <a
-            href="https://tirthdhandhukia.com"
+            href="https://wilfredmanyara.com"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-1 text-foreground/60 hover:text-foreground transition-colors"
           >
-            Tirth Dhandhukia
+            Wilfred Manyara
           </a>
         </div>
       </footer>
