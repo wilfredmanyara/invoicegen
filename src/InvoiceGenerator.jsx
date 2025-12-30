@@ -1334,41 +1334,39 @@ export default function InvoiceGenerator({ onBack }) {
 
       {/* Header */}
       <div className="relative z-10 border-b border-border bg-background/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button
-              onClick={onBack}
-              variant="ghost"
-              size="sm"
-              className="text-foreground/70 hover:text-foreground"
-              type="button"
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <Button
+            onClick={onBack}
+            variant="ghost"
+            size="sm"
+            className="text-foreground/70 hover:text-foreground"
+            type="button"
+          >
+            <svg
+              className="w-4 h-4 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              Back
-            </Button>
-            <div>
-              <h1 className="text-lg font-bold text-foreground tracking-tight">
-                Create Invoice
-              </h1>
-              <p className="text-xs text-muted-foreground">
-                Fill in the details below
-              </p>
-            </div>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Back
+          </Button>
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <h1 className="text-lg font-bold text-foreground tracking-tight">
+              Create Invoice
+            </h1>
+            <p className="text-xs text-muted-foreground">
+              Fill in the details below
+            </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-row sm:flex-row items-center justify-center gap-3 w-full h-full">
             {/* PDF Theme Toggle */}
             <div className="flex items-center gap-2 bg-muted rounded-lg p-0.5">
               <button
