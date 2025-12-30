@@ -22,18 +22,18 @@ export function ThemeToggle() {
       <button
         type="button"
         onClick={cycleTheme}
-        className="md:hidden flex items-center justify-center p-2 rounded-lg bg-muted text-foreground hover:bg-muted/80 transition-all"
+        className="md:hidden flex items-center justify-center p-3 rounded-lg bg-muted text-foreground hover:bg-muted/80 transition-all"
         title={`Current: ${theme} theme`}
       >
         {getIcon()}
       </button>
 
       {/* Desktop: Full theme switcher */}
-      <div className="hidden md:flex items-center gap-2 bg-muted rounded-lg p-0.5">
+      <div className="hidden md:flex items-center gap-2 bg-muted rounded-lg p-1">
         <button
           type="button"
           onClick={() => setTheme("dark")}
-          className={`flex items-center gap-1.5 px-2 py-1 rounded-md transition-all ${
+          className={`flex items-center gap-1.5 px-3 py-2 rounded-md transition-all ${
             theme === "dark"
               ? "bg-background text-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"
@@ -46,7 +46,7 @@ export function ThemeToggle() {
         <button
           type="button"
           onClick={() => setTheme("system")}
-          className={`flex items-center gap-1.5 px-2 py-1 rounded-md transition-all ${
+          className={`flex items-center gap-1.5 px-3 py-2 rounded-md transition-all ${
             theme === "system"
               ? "bg-background text-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"
@@ -59,7 +59,7 @@ export function ThemeToggle() {
         <button
           type="button"
           onClick={() => setTheme("light")}
-          className={`flex items-center gap-1.5 px-2 py-1 rounded-md transition-all ${
+          className={`flex items-center gap-1.5 px-3 py-2 rounded-md transition-all ${
             theme === "light"
               ? "bg-background text-foreground shadow-sm"
               : "text-muted-foreground hover:text-foreground"

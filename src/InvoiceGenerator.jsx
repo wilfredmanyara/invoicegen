@@ -209,6 +209,7 @@ export default function InvoiceGenerator({ onBack }) {
 
   // Currency symbols
   const currencySymbols = {
+    KSH: "KSh",
     USD: "$",
     EUR: "€",
     GBP: "£",
@@ -1372,7 +1373,7 @@ export default function InvoiceGenerator({ onBack }) {
               <button
                 type="button"
                 onClick={() => setPdfTheme("light")}
-                className={`flex items-center gap-1.5 px-2 py-1 rounded-md transition-all ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md transition-all ${
                   pdfTheme === "light"
                     ? "bg-background text-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground"
@@ -1387,7 +1388,7 @@ export default function InvoiceGenerator({ onBack }) {
               <button
                 type="button"
                 onClick={() => setPdfTheme("dark")}
-                className={`flex items-center gap-1.5 px-2 py-1 rounded-md transition-all ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md transition-all ${
                   pdfTheme === "dark"
                     ? "bg-background text-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground"
@@ -1435,6 +1436,52 @@ export default function InvoiceGenerator({ onBack }) {
       <div className="flex-1 relative z-10 overflow-y-auto">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            {/* Preview Section */}
+            <div className="lg:sticky lg:top-8 h-fit">
+              <div className="mb-4">
+                <h3 className="text-sm font-semibold text-foreground mb-1">
+                  Live Preview
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Your invoice updates in real-time
+                </p>
+              </div>
+              <div
+                ref={previewRef}
+                data-html2canvas-ignore-global-styles="true"
+                style={{
+                  backgroundColor: getThemeColors().background,
+                  border: `1px solid ${getThemeColors().borderStrong}`,
+                  borderRadius: "8px",
+                  padding: "32px",
+                  position: "relative",
+                  boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+                  color: getThemeColors().text,
+                  fontFamily: "system-ui, -apple-system, sans-serif",
+                  maxHeight: "800px",
+                  overflowY: "auto",
+                }}
+              >
+                <DndContext
+                  sensors={sensors}
+                  collisionDetection={closestCenter}
+                  onDragEnd={handleDragEnd}
+                >
+                  <SortableContext
+                    items={sectionOrder}
+                    strategy={verticalListSortingStrategy}
+                  >
+                    {sectionOrder.map((sectionId) => (
+                      <SortableSection key={sectionId} id={sectionId}>
+                        {renderSection(sectionId)}
+                      </SortableSection>
+                    ))}
+                  </SortableContext>
+                </DndContext>
+              </div>
+            </div>
+            
             {/* Form Section */}
             <div className="space-y-6">
               {/* Field Customization - Simplified */}
@@ -1648,6 +1695,7 @@ export default function InvoiceGenerator({ onBack }) {
                               <SelectValue />
                             </SelectTrigger>
                             <SelectContent>
+                              <SelectItem value="KSH">KSH (KSh)</SelectItem>
                               <SelectItem value="USD">USD ($)</SelectItem>
                               <SelectItem value="EUR">EUR (€)</SelectItem>
                               <SelectItem value="GBP">GBP (£)</SelectItem>
@@ -1993,51 +2041,6 @@ export default function InvoiceGenerator({ onBack }) {
                   </CardContent>
                 </Card>
               )}
-            </div>
-
-            {/* Preview Section */}
-            <div className="lg:sticky lg:top-8 h-fit">
-              <div className="mb-4">
-                <h3 className="text-sm font-semibold text-foreground mb-1">
-                  Live Preview
-                </h3>
-                <p className="text-xs text-muted-foreground">
-                  Your invoice updates in real-time
-                </p>
-              </div>
-              <div
-                ref={previewRef}
-                data-html2canvas-ignore-global-styles="true"
-                style={{
-                  backgroundColor: getThemeColors().background,
-                  border: `1px solid ${getThemeColors().borderStrong}`,
-                  borderRadius: "8px",
-                  padding: "32px",
-                  position: "relative",
-                  boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-                  color: getThemeColors().text,
-                  fontFamily: "system-ui, -apple-system, sans-serif",
-                  maxHeight: "800px",
-                  overflowY: "auto",
-                }}
-              >
-                <DndContext
-                  sensors={sensors}
-                  collisionDetection={closestCenter}
-                  onDragEnd={handleDragEnd}
-                >
-                  <SortableContext
-                    items={sectionOrder}
-                    strategy={verticalListSortingStrategy}
-                  >
-                    {sectionOrder.map((sectionId) => (
-                      <SortableSection key={sectionId} id={sectionId}>
-                        {renderSection(sectionId)}
-                      </SortableSection>
-                    ))}
-                  </SortableContext>
-                </DndContext>
-              </div>
             </div>
           </div>
         </div>
