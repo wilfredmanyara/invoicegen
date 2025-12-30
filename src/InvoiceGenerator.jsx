@@ -351,39 +351,31 @@ export default function InvoiceGenerator({ onBack }) {
   ]);
 
   // Get theme colors for PDF
-  const getThemeColors = useCallback(
-    (themeOverride = null) => {
-      // If themeOverride is provided, use it. Otherwise use the current UI theme.
-      const themeToUse = themeOverride || theme;
-      const isDark =
-        themeToUse === "dark" ||
-        (themeToUse === "system" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches);
+  const getThemeColors = useCallback(() => {
+    const isDark = pdfTheme === "dark";
 
-      if (isDark) {
-        return {
-          background: "#000000",
-          cardBackground: "#1A1A1A",
-          text: "#ffffff",
-          textSecondary: "rgba(255, 255, 255, 0.7)",
-          textMuted: "rgba(255, 255, 255, 0.8)",
-          border: "rgba(255, 255, 255, 0.1)",
-          borderStrong: "rgba(255, 255, 255, 0.2)",
-        };
-      } else {
-        return {
-          background: "#ffffff",
-          cardBackground: "#ffffff",
-          text: "#000000",
-          textSecondary: "#000000",
-          textMuted: "#000000",
-          border: "#000000",
-          borderStrong: "#000000",
-        };
-      }
-    },
-    [theme]
-  );
+    if (isDark) {
+      return {
+        background: "#000000",
+        cardBackground: "#1A1A1A",
+        text: "#ffffff",
+        textSecondary: "rgba(255, 255, 255, 0.7)",
+        textMuted: "rgba(255, 255, 255, 0.8)",
+        border: "rgba(255, 255, 255, 0.1)",
+        borderStrong: "rgba(255, 255, 255, 0.2)",
+      };
+    } else {
+      return {
+        background: "#ffffff",
+        cardBackground: "#ffffff",
+        text: "#000000",
+        textSecondary: "#000000",
+        textMuted: "#000000",
+        border: "#000000",
+        borderStrong: "#000000",
+      };
+    }
+  }, [pdfTheme]); // Depend on pdfTheme
 
   /**
    * PDF Export with correct pixel-to-millimeter conversion.
